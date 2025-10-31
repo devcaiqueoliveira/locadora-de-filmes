@@ -1,1 +1,4 @@
 spring.application.name=locadora-de-filmes
+spring.datasource.url=jdbc:postgresql://localhost:5432/locadora_db
+spring.datasource.username=seu_usuario_postgres_NESSE_PC
+spring.datasource.password=sua_senha_NESSE_PC
