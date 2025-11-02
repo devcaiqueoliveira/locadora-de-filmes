@@ -1,6 +1,7 @@
 package com.devcaiqueoliveira.locadoradefilmes.domain.movie;
 
 import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieDataException;
+import com.devcaiqueoliveira.locadoradefilmes.domain.common.util.ValidationUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
@@ -22,8 +23,8 @@ public class Title {
     }
 
     private void validate(String title) {
-        if (title == null || title.isBlank()) {
-            throw new InvalidMovieDataException("O campo de título do filme, não pode ser nulo ou vazio");
-        }
+        ValidationUtils.notNullOrBlank(title, () ->
+                new InvalidMovieDataException("O título do filme não pode ser nulo ou estar vazio.")
+        );
     }
 }

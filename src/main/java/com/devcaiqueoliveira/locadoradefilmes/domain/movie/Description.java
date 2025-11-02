@@ -1,6 +1,7 @@
 package com.devcaiqueoliveira.locadoradefilmes.domain.movie;
 
 import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieDataException;
+import com.devcaiqueoliveira.locadoradefilmes.domain.common.util.ValidationUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
@@ -24,15 +25,14 @@ public class Description {
     }
 
     private void validate(String description) {
-        if (description == null || description.isBlank()) {
-            throw new InvalidMovieDataException("A descrição do filme precisa ser obrigatoriamente preenchida.");
-        }
-        if (description.length() < MIN_DESCRIPTION_LENGTH || description.length() > MAX_DESCRIPTION_LENGTH) {
-            throw new InvalidMovieDataException(
-                    "A descrição do filme precisa ter entre"
-                            + MIN_DESCRIPTION_LENGTH + " e "
-                            + MAX_DESCRIPTION_LENGTH + " caracteres."
-            );
-        }
+        ValidationUtils.notNullOrBlank(description, () ->
+                new InvalidMovieDataException("A descrição do filme não pode estar vazia ou ser nula.")
+        );
+
+        ValidationUtils.checkStringLength(description, MIN_DESCRIPTION_LENGTH, MAX_DESCRIPTION_LENGTH, () ->
+                new InvalidMovieDataException("A descrição do filme precisa ter entre"
+                        + MIN_DESCRIPTION_LENGTH + " e "
+                        + MAX_DESCRIPTION_LENGTH + " caracteres.")
+        );
     }
 }
