@@ -4,10 +4,12 @@ import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieDataE
 import com.devcaiqueoliveira.locadoradefilmes.domain.common.util.ValidationUtils;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Embeddable
 @Getter
+@EqualsAndHashCode
 public class Description {
     private static final int MIN_DESCRIPTION_LENGTH = 10;
     private static final int MAX_DESCRIPTION_LENGTH = 300;

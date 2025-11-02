@@ -16,4 +16,10 @@ public class ValidationUtils {
             throw exceptionSupplier.get();
         }
     }
+
+    public static void checkExactLength(String value, int exactLength, Supplier<? extends RuntimeException> exceptionSupplier) {
+        if (value.length() != exactLength) {
+            throw exceptionSupplier.get();
+        }
+    }
 }

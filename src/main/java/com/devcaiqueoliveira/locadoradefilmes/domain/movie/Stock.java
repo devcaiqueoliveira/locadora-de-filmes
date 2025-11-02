@@ -4,10 +4,12 @@ import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieDataE
 import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieStockException;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Embeddable
 @Getter
+@EqualsAndHashCode
 public class Stock {
 
     @Column(name = "stock")
