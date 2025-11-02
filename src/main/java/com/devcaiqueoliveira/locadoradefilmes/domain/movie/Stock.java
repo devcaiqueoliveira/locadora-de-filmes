@@ -56,7 +56,7 @@ public class Stock {
         }
         int newAmount = this.stock - quantity;
         if (newAmount < 0) {
-            throw new InvalidMovieStockException(
+            throw new IllegalArgumentException(
                     "Não foi possível remover "
                             + quantity + " cópias. Apenas"
                             + this.stock + " estão disponíveis."
