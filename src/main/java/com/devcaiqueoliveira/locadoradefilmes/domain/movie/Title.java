@@ -13,7 +13,6 @@ import lombok.Getter;
 public class Title {
 
     @Column(name = "title")
-    @Getter
     private String title;
 
     protected Title() {
@@ -26,7 +25,7 @@ public class Title {
 
     private void validate(String title) {
         ValidationUtils.notNullOrBlank(title, () ->
-                new InvalidMovieDataException("O título do filme não pode ser nulo ou estar vazio.")
+                new IllegalArgumentException("O título do filme não pode ser nulo ou estar vazio.")
         );
     }
 }

@@ -10,6 +10,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class StockTest {
 
     @Test
+    void shouldPreventNegativeStock() {
+        assertThrows(IllegalArgumentException.class, () ->
+                new Stock(-5)
+        );
+    }
+
+    @Test
     void shouldIncreaseTheStock() {
         int initialStock = 5;
         Stock stock = new Stock(initialStock);
@@ -32,7 +39,7 @@ public class StockTest {
     }
 
     @Test
-    void shouldPreventNegativeStockWhenRemove() {
+    void shouldPreventNegativeStockWhenDecrease() {
         int initialStock = 0;
         Stock stock = new Stock(initialStock);
 
@@ -45,7 +52,18 @@ public class StockTest {
         Stock stock = new Stock(initialStock);
 
         assertThrows(IllegalArgumentException.class, () ->
-                stock.remove(-5));
+                stock.remove(-5)
+        );
+    }
+
+    @Test
+    void shouldPreventNegativeStockWhenRemove() {
+        int initialStock = 5;
+        Stock stock = new Stock(initialStock);
+
+        assertThrows(IllegalArgumentException.class, () ->
+                stock.remove(-5)
+        );
     }
 
 }

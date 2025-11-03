@@ -14,7 +14,6 @@ public class Duration {
     private static final int MAX_DURATION = 210;
 
     @Column(name = "duration")
-    @Getter
     private int duration;
 
     protected Duration() {

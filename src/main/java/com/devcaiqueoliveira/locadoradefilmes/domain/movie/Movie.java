@@ -2,7 +2,6 @@ package com.devcaiqueoliveira.locadoradefilmes.domain.movie;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
@@ -63,12 +62,20 @@ public class Movie {
         return this.stock.getStock();
     }
 
-    public void increaseMovieStock() { this.stock = this.stock.increase();}
+    public void increaseMovieStock() {
+        this.stock = this.stock.increase();
+    }
 
-    public void decreaseMovieStock() { this.stock = this.stock.decrease();}
+    public void decreaseMovieStock() {
+        this.stock = this.stock.decrease();
+    }
 
-    public void addMovieStock(int quantity) { this.stock = this.stock.add(quantity);}
+    public void addMovieStock(int quantity) {
+        this.stock = this.stock.add(quantity);
+    }
 
-    public void removeMovieStock(int quantity) { this.stock = this.stock.remove(quantity);}
+    public void removeMovieStock(int quantity) {
+        this.stock = this.stock.remove(quantity);
+    }
 
 }
