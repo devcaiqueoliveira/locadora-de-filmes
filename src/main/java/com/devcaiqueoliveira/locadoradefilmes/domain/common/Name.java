@@ -17,6 +17,7 @@ public class Name {
     }
 
     public Name(String name) {
+        validate(name);
         this.name = name;
     }
 

@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EmailTest {
 
-
     @Test
     public void shouldCreateEmailWhenFormatIsValid() {
         String validEmailFormat = "example@example.com";
@@ -36,8 +35,17 @@ public class EmailTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenEmailIsEmpty() {
+    public void shouldThrowExceptionWhenEmailIsBlank() {
         String invalidEmail = "";
+
+        assertThrows(InvalidUserDataException.class, () ->
+                new Email(invalidEmail)
+        );
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenEmailIsEmpty() {
+        String invalidEmail = " ";
 
         assertThrows(InvalidUserDataException.class, () ->
                 new Email(invalidEmail)
