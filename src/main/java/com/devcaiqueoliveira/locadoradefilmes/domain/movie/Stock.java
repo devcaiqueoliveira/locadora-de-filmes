@@ -1,7 +1,6 @@
 package com.devcaiqueoliveira.locadoradefilmes.domain.movie;
 
 import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieDataException;
-import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieStockException;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
@@ -29,19 +28,6 @@ public class Stock {
         }
     }
 
-    public Stock increase() {
-        int newAmount = this.stock + 1;
-        return new Stock(newAmount);
-    }
-
-    public Stock decrease() {
-        if (this.stock == 0) {
-            throw new InvalidMovieStockException("Atualmente não existem cópias diponíveis deste filme.");
-        }
-        int newAmount = this.stock - 1;
-        return new Stock(newAmount);
-    }
-
     public Stock add(int quantity) {
         if (quantity <= 0) {
             throw new InvalidMovieDataException("A quantidade a se adicionar deve ser maior que zero.");
@@ -64,4 +50,13 @@ public class Stock {
         }
         return new Stock(newAmount);
     }
+
+    public Stock increase() {
+        return this.add(1);
+    }
+
+    public Stock decrease() {
+        return this.remove(1);
+    }
+
 }
