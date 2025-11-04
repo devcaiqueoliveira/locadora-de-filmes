@@ -12,6 +12,7 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @Getter
     private Long id;
 
     @Embedded
@@ -39,9 +40,11 @@ public class Movie {
 
     }
 
-    public Movie(Title title, Description description, Duration duration, Stock stock) {
+    public Movie(Title title, Genre genre, Description description, LocalDate releaseDate, Duration duration, Stock stock) {
         this.title = title;
+        this.genre = genre;
         this.description = description;
+        this.releaseDate = releaseDate;
         this.duration = duration;
         this.stock = stock;
     }
@@ -58,7 +61,7 @@ public class Movie {
         return this.duration.getDuration();
     }
 
-    public int getStock() {
+    public int getStockAmount() {
         return this.stock.getStock();
     }
 

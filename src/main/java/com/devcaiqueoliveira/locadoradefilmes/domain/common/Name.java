@@ -5,9 +5,11 @@ import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidUserDataEx
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Embeddable
 @EqualsAndHashCode
+@Getter
 public class Name {
 
     @Column(name = "name")
