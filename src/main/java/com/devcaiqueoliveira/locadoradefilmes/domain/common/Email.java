@@ -27,5 +27,7 @@ public class Email {
     private void validate(String email) {
         ValidationUtils.notNullOrBlank(email, () ->
                 new InvalidUserDataException("O email do úsuario não pode estar vazio ou ser nulo"));
+        ValidationUtils.checkEmailFormat(email, () ->
+                new InvalidUserDataException("Email inválido. Tente algo como: example@example.com"));
     }
 }
