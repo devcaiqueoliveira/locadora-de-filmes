@@ -4,10 +4,7 @@ import com.devcaiqueoliveira.locadoradefilmes.application.dto.MovieRequestDTO;
 import com.devcaiqueoliveira.locadoradefilmes.application.service.MovieService;
 import com.devcaiqueoliveira.locadoradefilmes.domain.movie.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/movies")
@@ -32,5 +29,10 @@ public class MovieController {
         );
 
         movieService.registerMovie(movie);
+    }
+
+    @GetMapping
+    public Movie findMovieById(@PathVariable Long id) {
+        return movieService.findMovieById(id);
     }
 }
