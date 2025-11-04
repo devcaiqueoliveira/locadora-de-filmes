@@ -2,6 +2,7 @@ package com.devcaiqueoliveira.locadoradefilmes.domain.movie;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -13,6 +14,7 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Getter
+    @Setter
     private Long id;
 
     @Embedded
