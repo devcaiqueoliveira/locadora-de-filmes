@@ -1,6 +1,6 @@
 package com.devcaiqueoliveira.locadoradefilmes.application.service;
 
-import com.devcaiqueoliveira.locadoradefilmes.application.dto.MovieRequestDTO;
+import com.devcaiqueoliveira.locadoradefilmes.application.dto.movie.MovieRequestDTO;
 import com.devcaiqueoliveira.locadoradefilmes.domain.exception.ResourceNotFoundException;
 import com.devcaiqueoliveira.locadoradefilmes.domain.movie.*;
 import com.devcaiqueoliveira.locadoradefilmes.repository.MovieRepository;

@@ -1,7 +1,7 @@
 package com.devcaiqueoliveira.locadoradefilmes.api.controller;
 
-import com.devcaiqueoliveira.locadoradefilmes.application.dto.MovieRequestDTO;
-import com.devcaiqueoliveira.locadoradefilmes.application.dto.MovieResponseDTO;
+import com.devcaiqueoliveira.locadoradefilmes.application.dto.movie.MovieRequestDTO;
+import com.devcaiqueoliveira.locadoradefilmes.application.dto.movie.MovieResponseDTO;
 import com.devcaiqueoliveira.locadoradefilmes.application.service.MovieService;
 import com.devcaiqueoliveira.locadoradefilmes.domain.movie.*;
 import org.springframework.beans.factory.annotation.Autowired;
