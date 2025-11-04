@@ -58,5 +58,32 @@ public class CpfTest {
         );
     }
 
+    @Test
+    void shouldThrowExceptionWhenCpfIsNull() {
+        String invalidCpf = null;
+
+        assertThrows(InvalidUserDataException.class, () ->
+                new Cpf(invalidCpf)
+        );
+    }
+
+    @Test
+    void shouldThrowExceptionWhenCpfIsEmpty() {
+        String invalidCpf = " ";
+
+        assertThrows(InvalidUserDataException.class, () ->
+                new Cpf(invalidCpf)
+        );
+    }
+
+    @Test
+    void shouldThrowExceptionWhenCpfIsBlank() {
+        String invalidCpf = "";
+
+        assertThrows(InvalidUserDataException.class, () ->
+                new Cpf(invalidCpf)
+        );
+    }
+
 
 }
