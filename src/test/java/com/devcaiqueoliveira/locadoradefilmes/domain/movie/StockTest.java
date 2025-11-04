@@ -1,12 +1,21 @@
 package com.devcaiqueoliveira.locadoradefilmes.domain.movie;
 
 
+import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieDataException;
 import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieStockException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StockTest {
+
+    @Test
+    void shouldThrowExceptionWhenStockIsNegative() {
+        assertThrows(InvalidMovieDataException.class, () ->
+                new Stock(-5)
+        );
+    }
 
     @Test
     void shouldIncreaseTheStock() {
@@ -31,7 +40,7 @@ public class StockTest {
     }
 
     @Test
-    void shouldPreventNegativeStockWhenRemove() {
+    void shouldPreventNegativeStockWhenDecrease() {
         int initialStock = 0;
         Stock stock = new Stock(initialStock);
 
@@ -43,7 +52,7 @@ public class StockTest {
         int initialStock = 10;
         Stock stock = new Stock(initialStock);
 
-        assertThrows(IllegalArgumentException.class, () ->
+        assertThrows(InvalidMovieDataException.class, () ->
                 stock.remove(-5)
         );
     }

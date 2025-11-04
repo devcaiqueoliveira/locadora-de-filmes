@@ -8,8 +8,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Embeddable
-@Getter
 @EqualsAndHashCode
+@Getter
 public class Stock {
 
     @Column(name = "stock")
@@ -35,7 +35,7 @@ public class Stock {
     }
 
     public Stock decrease() {
-        if (this.stock <= 0) {
+        if (this.stock == 0) {
             throw new InvalidMovieStockException("Atualmente não existem cópias diponíveis deste filme.");
         }
         int newAmount = this.stock - 1;
@@ -44,7 +44,7 @@ public class Stock {
 
     public Stock add(int quantity) {
         if (quantity <= 0) {
-            throw new InvalidMovieStockException("A quantidade a se adicionar deve ser positiva.");
+            throw new InvalidMovieDataException("A quantidade a se adicionar deve ser maior que zero.");
         }
         int newAmount = this.stock + quantity;
         return new Stock(newAmount);
@@ -52,11 +52,11 @@ public class Stock {
 
     public Stock remove(int quantity) {
         if (quantity <= 0) {
-            throw new IllegalArgumentException("A quantidade a se remover deve ser positiva.");
+            throw new InvalidMovieDataException("A quantidade a se remover deve ser positiva.");
         }
         int newAmount = this.stock - quantity;
         if (newAmount < 0) {
-            throw new IllegalArgumentException(
+            throw new InvalidMovieDataException(
                     "Não foi possível remover "
                             + quantity + " cópias. Apenas"
                             + this.stock + " estão disponíveis."

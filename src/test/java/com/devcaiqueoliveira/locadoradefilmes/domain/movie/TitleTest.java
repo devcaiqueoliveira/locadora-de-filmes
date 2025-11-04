@@ -33,6 +33,4 @@ public class TitleTest {
                 new Title(invalidTitle)
         );
     }
-
-
 }

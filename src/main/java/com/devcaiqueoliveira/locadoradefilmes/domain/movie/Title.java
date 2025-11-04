@@ -13,7 +13,6 @@ import lombok.Getter;
 public class Title {
 
     @Column(name = "title")
-    @Getter
     private String title;
 
     protected Title() {

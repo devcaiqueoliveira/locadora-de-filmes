@@ -15,7 +15,6 @@ public class Description {
     private static final int MAX_DESCRIPTION_LENGTH = 300;
 
     @Column(name = "description")
-    @Getter
     private String description;
 
     protected Description() {
