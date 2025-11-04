@@ -1,6 +1,11 @@
 package com.devcaiqueoliveira.locadoradefilmes.application.service;
 
+import com.devcaiqueoliveira.locadoradefilmes.application.dto.customer.CustomerRequestDTO;
+import com.devcaiqueoliveira.locadoradefilmes.domain.common.Cpf;
+import com.devcaiqueoliveira.locadoradefilmes.domain.common.Email;
+import com.devcaiqueoliveira.locadoradefilmes.domain.common.Name;
 import com.devcaiqueoliveira.locadoradefilmes.domain.customer.Customer;
+import com.devcaiqueoliveira.locadoradefilmes.domain.exception.ResourceNotFoundException;
 import com.devcaiqueoliveira.locadoradefilmes.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,8 +40,20 @@ public class CustomerService {
     }
 
     @Transactional
-    public void updateCustomer(Customer customer) {
-        customerRepository.save(customer);
+    public void updateCustomer(Long id, CustomerRequestDTO dto) {
+        if (!customerRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Cliente não encontrado.");
+        }
+
+        Customer updatedCustomer = new Customer(
+                new Name(dto.name()),
+                new Email(dto.email()),
+                new Cpf(dto.cpf())
+        );
+
+        updatedCustomer.setId(id);
+
+        customerRepository.save(updatedCustomer);
     }
 
     @Transactional

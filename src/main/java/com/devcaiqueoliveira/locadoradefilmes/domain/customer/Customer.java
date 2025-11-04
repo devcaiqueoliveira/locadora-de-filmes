@@ -5,7 +5,7 @@ import com.devcaiqueoliveira.locadoradefilmes.domain.common.Email;
 import com.devcaiqueoliveira.locadoradefilmes.domain.common.Name;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "customers")
@@ -15,6 +15,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Getter
+    @Setter
     private Long id;
 
     @Column(name = "name")
@@ -27,7 +28,7 @@ public class Customer {
     private Cpf cpf;
 
     protected Customer() {
-        
+
     }
 
     public Customer(Name name, Email email, Cpf cpf) {
