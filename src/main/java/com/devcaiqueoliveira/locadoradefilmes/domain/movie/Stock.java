@@ -52,7 +52,7 @@ public class Stock {
 
     public Stock remove(int quantity) {
         if (quantity <= 0) {
-            throw new InvalidMovieStockException("A quantidade a se remover deve ser positiva.");
+            throw new IllegalArgumentException("A quantidade a se remover deve ser positiva.");
         }
         int newAmount = this.stock - quantity;
         if (newAmount < 0) {

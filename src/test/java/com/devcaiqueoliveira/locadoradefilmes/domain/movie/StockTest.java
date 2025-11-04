@@ -4,8 +4,7 @@ package com.devcaiqueoliveira.locadoradefilmes.domain.movie;
 import com.devcaiqueoliveira.locadoradefilmes.domain.exception.InvalidMovieStockException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StockTest {
 
@@ -45,7 +44,8 @@ public class StockTest {
         Stock stock = new Stock(initialStock);
 
         assertThrows(IllegalArgumentException.class, () ->
-                stock.remove(-5));
+                stock.remove(-5)
+        );
     }
 
 }
