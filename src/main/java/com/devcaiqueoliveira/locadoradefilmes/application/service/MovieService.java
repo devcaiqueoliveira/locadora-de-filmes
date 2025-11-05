@@ -28,7 +28,7 @@ public class MovieService {
     @Transactional(readOnly = true)
     public Movie findMovieById(Long id) {
         return movieRepository.findById(id)
-                .orElse(null);
+                .orElseThrow(() -> new ResourceNotFoundException("Filme com ID " + id + " não encontrado."));
     }
 
     @Transactional(readOnly = true)
