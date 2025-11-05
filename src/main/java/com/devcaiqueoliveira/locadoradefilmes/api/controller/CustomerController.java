@@ -37,7 +37,7 @@ public class CustomerController {
         customerService.registerCustomer(customer);
     }
 
-    @GetMapping("/{id]")
+    @GetMapping("/{id}")
     public CustomerResponseDTO findCustomerById(@PathVariable Long id) {
         Customer customer = customerService.findCustomerById(id);
         return toResponseDTO(customer);

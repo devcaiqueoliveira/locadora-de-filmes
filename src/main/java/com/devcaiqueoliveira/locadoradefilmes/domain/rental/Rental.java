@@ -40,6 +40,9 @@ public class Rental {
     @Setter
     private LocalDate returnDate;
 
+    protected Rental () {
+    }
+
     public Rental(Customer customer, Movie movie, LocalDate rentalDate) {
         this.customer = customer;
         this.movie = movie;

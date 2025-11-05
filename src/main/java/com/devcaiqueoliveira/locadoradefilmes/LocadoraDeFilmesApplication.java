@@ -10,5 +10,4 @@ public class LocadoraDeFilmesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LocadoraDeFilmesApplication.class, args);
 	}
-
 }
