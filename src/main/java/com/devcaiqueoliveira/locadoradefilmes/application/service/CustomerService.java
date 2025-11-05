@@ -24,7 +24,12 @@ public class CustomerService {
     }
 
     @Transactional
-    public void registerCustomer(Customer customer) {
+    public void registerCustomer(CustomerRequestDTO dto) {
+        Customer customer = new Customer(
+                new Name(dto.name()),
+                new Email(dto.email()),
+                new Cpf(dto.cpf())
+        );
         customerRepository.save(customer);
     }
 

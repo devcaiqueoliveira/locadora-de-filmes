@@ -28,13 +28,7 @@ public class CustomerController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createCustomer(@RequestBody CustomerRequestDTO dto) {
-        Customer customer = new Customer(
-                new Name(dto.name()),
-                new Email(dto.email()),
-                new Cpf(dto.cpf())
-        );
-
-        customerService.registerCustomer(customer);
+        customerService.registerCustomer(dto);
     }
 
     @GetMapping("/{id}")

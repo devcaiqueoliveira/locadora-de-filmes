@@ -21,7 +21,16 @@ public class MovieService {
     }
 
     @Transactional
-    public void registerMovie(Movie movie) {
+    public void registerMovie(MovieRequestDTO dto) {
+        Movie movie = new Movie(
+                new Title(dto.title()),
+                dto.genre(),
+                new Description(dto.description()),
+                dto.releaseDate(),
+                new Duration(dto.duration()),
+                new Stock(dto.stock())
+        );
+
         movieRepository.save(movie);
     }
 

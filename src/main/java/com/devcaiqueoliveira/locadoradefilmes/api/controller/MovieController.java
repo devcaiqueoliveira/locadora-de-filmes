@@ -26,16 +26,7 @@ public class MovieController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createMovie(@RequestBody MovieRequestDTO dto) {
-        Movie movie = new Movie(
-                new Title(dto.title()),
-                dto.genre(),
-                new Description(dto.description()),
-                dto.releaseDate(),
-                new Duration(dto.duration()),
-                new Stock(dto.stock())
-        );
-
-        movieService.registerMovie(movie);
+        movieService.registerMovie(dto);
     }
 
     @GetMapping("/{id}")
