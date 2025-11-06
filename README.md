@@ -6,7 +6,6 @@
     Uma API RESTful em Spring Boot focada em Arquitetura Limpa, Domain-Driven Design (DDD) e persistência robusta com JPA/Hibernate.
     <br />
     <br />
-    <a href="#-sobre-o-projeto">Ver Demo</a>
     ·
     <a href="https://github.com/devcaiqueoliveira/locadora-de-filmes/issues">Reportar Bug</a>
     ·
